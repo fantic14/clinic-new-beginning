@@ -1,9 +1,13 @@
-module org.savetovaliste.savetovaliste {
+module org.savetovaliste {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
 
-    opens org.savetovaliste.savetovaliste to javafx.fxml;
-    exports org.savetovaliste.savetovaliste;
+    opens org.savetovaliste to javafx.fxml;
+    exports org.savetovaliste;
+    //exports org.savetovaliste.controller;
+    //exports org.savetovaliste.model;
+    opens org.savetovaliste.view to javafx.fxml;
+    exports org.savetovaliste.view;
 }
