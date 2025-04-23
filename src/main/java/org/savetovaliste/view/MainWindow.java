@@ -1,40 +1,101 @@
 package org.savetovaliste.view;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import java.io.IOException;
+import java.util.Objects;
 
 public class MainWindow {
 
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/savetovaliste/view/main-window.fxml"));
+    @FXML
+    public Button overviewTherapists;
+    @FXML
+    private Button login;
+    @FXML
+    public Button register;
+    @FXML
+    public Button profile;
+    @FXML
+    public Button therapistSignUp;
+    @FXML
+    public Button therapistLogin;
+    @FXML
+    public Button profileOverview;
+    @FXML
+    public Button clientAppointments;
+    @FXML
+    public Button sessionHistory;
+    @FXML
+    public Button futureSessions;
+    @FXML
+    public Button sessionNotes;
+    @FXML
+    public Button publishSessionData;
+    @FXML
+    public Button paymentOverview;
 
-    public MainWindow() throws IOException {
-        fxmlLoader.setController(this);
-        init();
+    @FXML
+    public void initialize() {
+        login.getStyleClass().addAll("btn", "btn-primary");
+        register.getStyleClass().addAll("btn");
+
+        Image profileImage = new Image(Objects.requireNonNull(getClass().getResource("/imgs/profile.png")).toString());
+        ImageView profileIcon = new ImageView(profileImage);
+        profileIcon.setFitWidth(24);
+        profileIcon.setFitHeight(24);
+        profileIcon.setPreserveRatio(true);
+        profile.setGraphic(profileIcon);
+        profile.getStyleClass().addAll("btn", "btn-primary");
+        overviewTherapists.getStyleClass().addAll("btn", "btn-info");
+        therapistSignUp.getStyleClass().addAll("btn", "btn-success");
+        therapistLogin.getStyleClass().addAll("btn", "btn-warning");
+        profileOverview.getStyleClass().addAll("btn", "btn-info");
+        clientAppointments.getStyleClass().addAll("btn", "btn-secondary");
+        sessionHistory.getStyleClass().addAll("btn", "btn-info");
+        futureSessions.getStyleClass().addAll("btn", "btn-info");
+        sessionNotes.getStyleClass().addAll("btn", "btn-warning");
+        publishSessionData.getStyleClass().addAll("btn", "btn-danger");
+        paymentOverview.getStyleClass().addAll("btn", "btn-primary");
     }
 
     @FXML
-    protected void profileBtn(){
-
-    }
+    protected void profileBtn() {}
 
     @FXML
-    protected void loginBtn(){
-        System.out.println("pressed");
-    }
+    protected void loginBtn() {}
 
     @FXML
-    protected void registerBtn(){
-        System.out.println("pressed r");
-    }
+    protected void registerBtn() {}
 
-    private void init() throws IOException{
-        Stage stage = new Stage();
-        Scene scene = new Scene(fxmlLoader.load(), 500, 500);
-        stage.setScene(scene);
-        stage.show();
-    }
+    @FXML
+    protected void reviewTherapists() {}
+
+    @FXML
+    protected void therapistSignUpBtn() {}
+
+    @FXML
+    protected void therapistLoginBtn() {}
+
+    @FXML
+    protected void profileOverviewBtn() {}
+
+    @FXML
+    protected void clientAppointmentsBtn() {}
+
+    @FXML
+    protected void sessionHistoryBtn() {}
+
+    @FXML
+    protected void futureSessionsBtn() {}
+
+    @FXML
+    protected void sessionNotesBtn() {}
+
+    @FXML
+    protected void publishSessionDataBtn() {}
+
+    @FXML
+    protected void paymentOverviewBtn() {}
 }
