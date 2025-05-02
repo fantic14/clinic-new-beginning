@@ -3,6 +3,7 @@ module org.savetovaliste {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
+    requires static lombok;
 
     opens org.savetovaliste to javafx.fxml;
     exports org.savetovaliste;
