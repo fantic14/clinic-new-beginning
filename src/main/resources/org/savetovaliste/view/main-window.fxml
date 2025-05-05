@@ -7,8 +7,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <GridPane hgap="15" vgap="15" xmlns:fx="http://javafx.com/fxml"
           fx:controller="org.savetovaliste.view.MainWindow">
     <padding>
@@ -39,8 +37,6 @@
     <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnSpan="3" spacing="30">
         <VBox alignment="CENTER" spacing="15">
             <Button fx:id="overviewTherapists" text="Pregled terapeuta" onAction="#reviewTherapists" styleClass="btn btn-info"/>
-            <Button fx:id="therapistSignUp" text="Registracija terapeuta" onAction="#therapistSignUpBtn" styleClass="btn btn-success"/>
-            <Button fx:id="therapistLogin" text="Prijava terapeuta" onAction="#therapistLoginBtn" styleClass="btn btn-warning"/>
         </VBox>
 
         <!-- Divider to visually separate therapist actions and client actions -->
