@@ -12,7 +12,7 @@ import java.util.List;
 public class PrikazPsihoterapeutaController implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
-        List<Psihoterapeut> p = PsihoterapeutDAO.selectAllFromPerson();
+        List<Psihoterapeut> p = PsihoterapeutDAO.selectAllFromPsihoterapeut();
 
         PrikazSvihPsihoterapeutaWindow window = new PrikazSvihPsihoterapeutaWindow();
         window.setPsihoterapeuti(p);

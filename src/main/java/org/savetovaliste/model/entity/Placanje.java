@@ -22,7 +22,6 @@ public class Placanje {
     private LocalDate datumUplate;
 
     public Placanje(int klijentId, Integer psiholoskiTestId, Integer seansaId, int iznos, boolean stranaValuta, String svrhaPlacanja, boolean kesh, String nazivValute, LocalDate datumUplate) {
-        this.placanjeId = idCounter++;
         this.klijentId = klijentId;
         this.psiholoskiTestId = psiholoskiTestId;
         this.seansaId = seansaId;
@@ -32,5 +31,9 @@ public class Placanje {
         this.kesh = kesh;
         this.nazivValute = nazivValute;
         this.datumUplate = datumUplate;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

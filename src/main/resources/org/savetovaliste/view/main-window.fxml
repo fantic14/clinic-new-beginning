@@ -41,7 +41,6 @@
 
         <!-- Divider to visually separate therapist actions and client actions -->
         <VBox alignment="CENTER" spacing="15">
-            <Button fx:id="profileOverview" text="Pregled profila" onAction="#profileOverviewBtn" styleClass="btn btn-primary"/>
             <Button fx:id="clientAppointments" text="Pregled prijava" onAction="#clientAppointmentsBtn" styleClass="btn btn-secondary"/>
             <Button fx:id="sessionHistory" text="Pregled seansi" onAction="#sessionHistoryBtn" styleClass="btn btn-info"/>
         </VBox>

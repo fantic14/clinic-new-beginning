@@ -12,7 +12,10 @@ public class Oblast {
     private String naziv;
 
     public Oblast(String naziv) {
-        this.oblastId = idCounter++;
         this.naziv = naziv;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

@@ -17,10 +17,13 @@ public class Seansa {
     private boolean priznaoKrivicnoDelo;
 
     public Seansa(String beleske, int cena, LocalDate poslednjaPromenaCene, boolean priznaoKrivicnoDelo) {
-        this.seansaId = idCounter++;
         this.beleske = beleske;
         this.cena = cena;
         this.poslednjaPromenaCene = poslednjaPromenaCene;
         this.priznaoKrivicnoDelo = priznaoKrivicnoDelo;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

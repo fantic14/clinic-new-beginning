@@ -33,7 +33,8 @@ public class RegistracijaPsihoterapeutaController implements EventHandler<Action
                     window.getStepenStudija().getValue().getStepenStudijaId(),
                     window.getDatumSertifikacije().getValue(),
                     window.getOblastPsihoterapije().getValue().getOblastPsihoterapijeId()));
-            window.getStage().close();
-        }
+            RegistracijaPsihoterapeutaWindow.getStage().close();
+        } else
+            window.getMessage().setText("Neispravni podaci!");
     }
 }

@@ -13,9 +13,12 @@ public class Fakultet {
     private int univerzitetId;
 
     public Fakultet(String naziv, int univerzitetId) {
-        this.fakultetId = idCounter++;
         this.naziv = naziv;
         this.univerzitetId = univerzitetId;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 
     @Override

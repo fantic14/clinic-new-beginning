@@ -23,7 +23,6 @@ public class Klijent {
     private boolean prvaSeansa;
 
     public Klijent(String ime, String prezime, LocalDate datumRodjenja, char pol, String email, String brojTelefona, String opisProblema, String nacinKontakta, boolean prvaSeansa) {
-        this.klijentId = idCounter++;
         this.ime = ime;
         this.prezime = prezime;
         this.datumRodjenja = datumRodjenja;
@@ -33,5 +32,9 @@ public class Klijent {
         this.opisProblema = opisProblema;
         this.nacinKontakta = nacinKontakta;
         this.prvaSeansa = prvaSeansa;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

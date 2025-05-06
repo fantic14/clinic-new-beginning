@@ -17,17 +17,19 @@ public class Rate {
     private LocalDate datumDrugeRate;
 
     public Rate(int prvaRataIznos, int drugaRataIznos, LocalDate datumPrveRate) {
-        this.rataId = idCounter++;
         this.prvaRataIznos = prvaRataIznos;
         this.drugaRataIznos = drugaRataIznos;
         this.datumPrveRate = datumPrveRate;
     }
 
     public Rate(int prvaRataIznos, int drugaRataIznos, LocalDate datumPrveRate, LocalDate datumDrugeRate) {
-        this.rataId = idCounter++;
         this.prvaRataIznos = prvaRataIznos;
         this.drugaRataIznos = drugaRataIznos;
         this.datumPrveRate = datumPrveRate;
         this.datumDrugeRate = datumDrugeRate;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

@@ -12,8 +12,11 @@ public class OblastPsihoterapije {
     private String naziv;
 
     public OblastPsihoterapije(String naziv) {
-        this.oblastPsihoterapijeId = idCounter++;
         this.naziv = naziv;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 
     @Override

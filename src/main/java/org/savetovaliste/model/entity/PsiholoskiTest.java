@@ -15,10 +15,13 @@ public class PsiholoskiTest {
     private String rezultat;
 
     public PsiholoskiTest(String oblast, String naziv, int cena, String rezultat) {
-        this.psiholoskiTestId = idCounter++;
         this.oblast = oblast;
         this.naziv = naziv;
         this.cena = cena;
         this.rezultat = rezultat;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

@@ -12,8 +12,11 @@ public class StepenStudija {
     private String nazivStepenStudija;
 
     public StepenStudija(String nazivStepenStudija) {
-        this.stepenStudijaId = idCounter++;
         this.nazivStepenStudija = nazivStepenStudija;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 
     @Override

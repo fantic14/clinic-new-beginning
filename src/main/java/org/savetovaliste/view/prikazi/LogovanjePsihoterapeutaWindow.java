@@ -19,18 +19,20 @@ public class LogovanjePsihoterapeutaWindow {
     private TextField jmbg;
     private Button login;
     private Label message;
-    private Stage stage;
-    public static boolean logedIn = false;
+    private static Stage stage;
 
     public void start(Stage stage){
-        this.stage = stage;
-        initialize();
-        VBox root = new VBox(ime,prezime,jmbg,login, message);
-        root.setSpacing(10);
-        Scene scene = new Scene(root, 300, 200);
-        this.stage.setScene(scene);
-        this.stage.setTitle("Uloguj se");
-        this.stage.show();
+        if (this.stage == null)
+            this.stage = stage;
+        if (!stage.isShowing()) {
+            initialize();
+            VBox root = new VBox(ime, prezime, jmbg, login, message);
+            root.setSpacing(10);
+            Scene scene = new Scene(root, 300, 200);
+            this.stage.setScene(scene);
+            this.stage.setTitle("Uloguj se");
+            this.stage.show();
+        }
     }
 
     private void initialize() {
@@ -47,5 +49,9 @@ public class LogovanjePsihoterapeutaWindow {
         this.login.setOnAction(new LogovanjePsihoterapeutaController(this));
 
         this.message = new Label();
+    }
+
+    public static Stage getStage() {
+        return stage;
     }
 }

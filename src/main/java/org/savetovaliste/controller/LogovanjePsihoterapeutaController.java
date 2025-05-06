@@ -10,7 +10,8 @@ import java.sql.*;
 public class LogovanjePsihoterapeutaController implements EventHandler<ActionEvent> {
 
     private LogovanjePsihoterapeutaWindow window;
-    private static String ime, prezime, jmbg;
+    public static String ime, prezime, jmbg;
+    public static boolean logedIn = false;
 
     public LogovanjePsihoterapeutaController(LogovanjePsihoterapeutaWindow window) {
         this.window = window;
@@ -33,8 +34,8 @@ public class LogovanjePsihoterapeutaController implements EventHandler<ActionEve
                     ime = window.getIme().getText();
                     prezime = window.getPrezime().getText();
                     jmbg = window.getJmbg().getText();
-                    LogovanjePsihoterapeutaWindow.logedIn = true;
-                    window.getStage().close();
+                    LogovanjePsihoterapeutaController.logedIn = true;
+                    LogovanjePsihoterapeutaWindow.getStage().close();
                 } else
                     window.getMessage().setText("Ne postoji psihoterapeut sa tim podacima!");
 
