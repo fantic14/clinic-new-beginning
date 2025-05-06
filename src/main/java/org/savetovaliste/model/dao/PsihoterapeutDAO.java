@@ -14,6 +14,21 @@ import static org.savetovaliste.model.utility.JDBCUtils.getConnection;
 
 public class PsihoterapeutDAO {
 
+    public static List<Integer> selectAllSeansaIdsFromPsihoterapeut(int psihoterapeutId) {
+        String query = "SELECT DISTINCT seansa_id FROM psihoterapija.klijent_seansa_psihoterapeut WHERE osoba_id = ?";
+        List<Integer> seansaIds = new ArrayList<>();
+        try (PreparedStatement statement = getConnection().prepareStatement(query)) {
+            statement.setInt(1, psihoterapeutId);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                seansaIds.add(result.getInt("seansa_id"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching seansa ids", e);
+        }
+        return seansaIds;
+    }
+
     public static Psihoterapeut selectFromPsihoterapeutById(int id) {
         String query = "SELECT DISTINCT\n" +
                 "o.ime,\n" +

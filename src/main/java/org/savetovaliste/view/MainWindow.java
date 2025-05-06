@@ -54,6 +54,7 @@ public class MainWindow {
         sessionNotes.getStyleClass().addAll("btn", "btn-warning");
         sessionNotes.setOnAction(new PregledBeleskiTestovaController());
         publishSessionData.getStyleClass().addAll("btn", "btn-danger");
+        publishSessionData.setOnAction(new OtvaranjeProzoraZaCuvanjePodatakaOObjavljivanjuController());
         paymentOverview.getStyleClass().addAll("btn", "btn-primary");
     }
 
