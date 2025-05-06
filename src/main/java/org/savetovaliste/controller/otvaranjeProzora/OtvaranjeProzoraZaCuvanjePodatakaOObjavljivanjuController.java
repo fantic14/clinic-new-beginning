@@ -9,9 +9,11 @@ import javafx.stage.Stage;
 import org.savetovaliste.controller.LogovanjePsihoterapeutaController;
 import org.savetovaliste.model.dao.PsihoterapeutDAO;
 import org.savetovaliste.model.entity.Psihoterapeut;
+import org.savetovaliste.view.prikazi.OtvaranjeProzoraZaCuvanjePodatakaOObjavljivanjuWindow;
 import org.savetovaliste.view.prikazi.PregledProfilaPsihoterapeutaWindow;
 
-public class PregledProfilaPsihoterapeutaController implements EventHandler<ActionEvent> {
+public class OtvaranjeProzoraZaCuvanjePodatakaOObjavljivanjuController implements EventHandler<ActionEvent> {
+
     @Override
     public void handle(ActionEvent actionEvent) {
         try {
@@ -21,7 +23,7 @@ public class PregledProfilaPsihoterapeutaController implements EventHandler<Acti
                         LogovanjePsihoterapeutaController.prezime,
                         LogovanjePsihoterapeutaController.jmbg
                 );
-                PregledProfilaPsihoterapeutaWindow window = new PregledProfilaPsihoterapeutaWindow(p);
+                OtvaranjeProzoraZaCuvanjePodatakaOObjavljivanjuWindow window = new OtvaranjeProzoraZaCuvanjePodatakaOObjavljivanjuWindow(PsihoterapeutDAO.selectAllSeansaIdsFromPsihoterapeut(p.getPsihoterapeutId()));
                 window.start(new Stage());
             } else {
                 Stage stage = new Stage();
@@ -30,8 +32,9 @@ public class PregledProfilaPsihoterapeutaController implements EventHandler<Acti
                 stage.setScene(new Scene(root));
                 stage.show();
             }
-        } catch (Exception e) {
-            throw new RuntimeException("Error starting PregledProfilaPsihoterapeutaWindow", e);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error starting OtvaranjeProzoraZaCuvanjePodatakaOObjavljivanjuWindow", e);
         }
     }
 }
