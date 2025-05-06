@@ -12,6 +12,17 @@ public class Usmerenje {
     private String naziv;
     private String nazivSrodneOblasti;
 
+    public Usmerenje(int usmerenjeId, String naziv) {
+        this.usmerenjeId = usmerenjeId;
+        this.naziv = naziv;
+    }
+
+    public Usmerenje(int usmerenjeId, String naziv, String nazivSrodneOblasti) {
+        this.usmerenjeId = usmerenjeId;
+        this.naziv = naziv;
+        this.nazivSrodneOblasti = nazivSrodneOblasti;
+    }
+
     public Usmerenje(String naziv, String nazivSrodneOblasti) {
         this.naziv = naziv;
         this.nazivSrodneOblasti = nazivSrodneOblasti;

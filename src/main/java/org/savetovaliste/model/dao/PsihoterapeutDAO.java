@@ -14,6 +14,49 @@ import static org.savetovaliste.model.utility.JDBCUtils.getConnection;
 
 public class PsihoterapeutDAO {
 
+    public static Psihoterapeut selectFromPsihoterapeutById(int id) {
+        String query = "SELECT DISTINCT\n" +
+                "o.ime,\n" +
+                "o.prezime,\n" +
+                "o.jmbg,\n" +
+                "o.datum_rodjenja,\n" +
+                "o.prebivaliste,\n" +
+                "o.broj_telefona,\n" +
+                "o.email,\n" +
+                "o.fakultet_id,\n" +
+                "o.stepen_studija_id,\n" +
+                "p.datum_sertifikacije,\n" +
+                "p.oblast_psihoterapije_id\n" +
+                "FROM psihoterapija.osoba o\n" +
+                "JOIN psihoterapija.psihoterapeut p ON o.osoba_id = p.psihoterapeut_id\n";
+        Psihoterapeut psihoterapeut = null;
+
+        try (PreparedStatement statement = getConnection().prepareStatement(query);
+             ResultSet result = statement.executeQuery()) {
+
+            while (result.next()) {
+                int osobaId = result.getInt("osoba_id");
+                String ime = result.getString("ime");
+                String prezime = result.getString("prezime");
+                String jmbg = result.getString("jmbg");
+                LocalDate datumRodjenja = result.getDate("datum_rodjenja").toLocalDate();
+                String prebivaliste = result.getString("prebivaliste");
+                String brojTelefona = result.getString("broj_telefona");
+                String email = result.getString("email");
+                int fakultetId = result.getInt("fakultet_id");
+                int stepenStudijaId = result.getInt("stepen_studija_id");
+                LocalDate datumSertifikacije = result.getDate("datum_sertifikacije").toLocalDate();
+                int oblastPsihoterapijeId = result.getInt("oblast_psihoterapije_id");
+                psihoterapeut = new Psihoterapeut(osobaId, ime, prezime, jmbg, datumRodjenja, prebivaliste, brojTelefona, email, fakultetId, stepenStudijaId, datumSertifikacije, oblastPsihoterapijeId);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching psihoterapeuti", e);
+        }
+
+        return psihoterapeut;
+    }
+
     public static List<Psihoterapeut> selectAllFromPsihoterapeut() {
         String query = "SELECT DISTINCT\n" +
                 "o.ime,\n" +
@@ -35,6 +78,7 @@ public class PsihoterapeutDAO {
              ResultSet result = statement.executeQuery()) {
 
             while (result.next()) {
+                int osobaId = result.getInt("osoba_id");
                 String ime = result.getString("ime");
                 String prezime = result.getString("prezime");
                 String jmbg = result.getString("jmbg");
@@ -46,7 +90,7 @@ public class PsihoterapeutDAO {
                 int stepenStudijaId = result.getInt("stepen_studija_id");
                 LocalDate datumSertifikacije = result.getDate("datum_sertifikacije").toLocalDate();
                 int oblastPsihoterapijeId = result.getInt("oblast_psihoterapije_id");
-                Psihoterapeut p = new Psihoterapeut(ime, prezime, jmbg, datumRodjenja, prebivaliste, brojTelefona, email, fakultetId, stepenStudijaId, datumSertifikacije, oblastPsihoterapijeId);
+                Psihoterapeut p = new Psihoterapeut(osobaId, ime, prezime, jmbg, datumRodjenja, prebivaliste, brojTelefona, email, fakultetId, stepenStudijaId, datumSertifikacije, oblastPsihoterapijeId);
 
                 psihoterapeuti.add(p);
             }
@@ -104,6 +148,7 @@ public class PsihoterapeutDAO {
 
     public static Psihoterapeut selectFromPsihoterapeut(String ime_ulogovanog, String prezime_ulogovanog, String jmbg_ulogovanog) {
         String query = "SELECT DISTINCT\n" +
+                "o.osoba_id,\n" +
                 "o.ime,\n" +
                 "o.prezime,\n" +
                 "o.jmbg,\n" +
@@ -128,6 +173,7 @@ public class PsihoterapeutDAO {
             statement.setString(3, jmbg_ulogovanog);
             ResultSet result = statement.executeQuery();
             if (result.next()) {
+                int osobaId = result.getInt("osoba_id");
                 String ime = result.getString("ime");
                 String prezime = result.getString("prezime");
                 String jmbg = result.getString("jmbg");
@@ -139,7 +185,7 @@ public class PsihoterapeutDAO {
                 int stepenStudijaId = result.getInt("stepen_studija_id");
                 LocalDate datumSertifikacije = result.getDate("datum_sertifikacije").toLocalDate();
                 int oblastPsihoterapijeId = result.getInt("oblast_psihoterapije_id");
-                p = new Psihoterapeut(ime, prezime, jmbg, datumRodjenja, prebivaliste, brojTelefona, email, fakultetId, stepenStudijaId, datumSertifikacije, oblastPsihoterapijeId);
+                p = new Psihoterapeut(osobaId, ime, prezime, jmbg, datumRodjenja, prebivaliste, brojTelefona, email, fakultetId, stepenStudijaId, datumSertifikacije, oblastPsihoterapijeId);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -154,10 +200,10 @@ public class PsihoterapeutDAO {
             statement.setInt(1, p.getFakultetId());
             ResultSet result = statement.executeQuery();
             if (result.next()) {
-                fakultet = new Fakultet(result.getString("naziv"), result.getInt("univerzitet_id"));
+                fakultet = new Fakultet(result.getInt("fakultet_id"),result.getString("naziv"), result.getInt("univerzitet_id"));
             }
         }catch(SQLException e){
-            throw new RuntimeException("Error fetching fakultet name", e);
+            throw new RuntimeException("Error fetching fakultet", e);
         }
         return fakultet;
     }
@@ -169,10 +215,10 @@ public class PsihoterapeutDAO {
             statement.setInt(1, p.getOblastPsihoterapijeId());
             ResultSet result = statement.executeQuery();
             if (result.next()) {
-                o = new OblastPsihoterapije(result.getString("naziv"));
+                o = new OblastPsihoterapije(result.getInt("oblast_psihoterapije_id"),result.getString("naziv"));
             }
         }catch(SQLException e){
-            throw new RuntimeException("Error fetching oblast psihoterapije name", e);
+            throw new RuntimeException("Error fetching oblast psihoterapije", e);
         }
         return o;
     }
@@ -184,10 +230,10 @@ public class PsihoterapeutDAO {
             statement.setInt(1, p.getStepenStudijaId());
             ResultSet result = statement.executeQuery();
             if (result.next()) {
-                s = new StepenStudija(result.getString("naziv"));
+                s = new StepenStudija(result.getInt("stepen_studija_id"),result.getString("naziv"));
             }
         }catch(SQLException e){
-            throw new RuntimeException("Error fetching fakultet name", e);
+            throw new RuntimeException("Error fetching stepen studija", e);
         }
         return s;
     }

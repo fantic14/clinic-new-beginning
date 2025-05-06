@@ -12,6 +12,17 @@ public class Univerzitet {
     private String naziv;
     private int usmerenjeId;
 
+    public Univerzitet(int univerzitetId, String naziv) {
+        this.univerzitetId = univerzitetId;
+        this.naziv = naziv;
+    }
+
+    public Univerzitet(int univerzitetId, String naziv, int usmerenjeId) {
+        this.univerzitetId = univerzitetId;
+        this.naziv = naziv;
+        this.usmerenjeId = usmerenjeId;
+    }
+
     public Univerzitet(String naziv, int usmerenjeId) {
         this.naziv = naziv;
         this.usmerenjeId = usmerenjeId;

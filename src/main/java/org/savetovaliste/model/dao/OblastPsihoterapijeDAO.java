@@ -32,7 +32,7 @@ public class OblastPsihoterapijeDAO {
         try(PreparedStatement statement = getConnection().prepareStatement(query);
             ResultSet result = statement.executeQuery()) {
             while (result.next()){
-                oblastPsihoterapijeList.add(new OblastPsihoterapije(result.getString("naziv")));
+                oblastPsihoterapijeList.add(new OblastPsihoterapije(result.getInt("oblast_psihoterapije_id"),result.getString("naziv")));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error fetching oblast psihoterapije list", e);

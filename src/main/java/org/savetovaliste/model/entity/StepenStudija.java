@@ -11,6 +11,11 @@ public class StepenStudija {
     private int stepenStudijaId;
     private String nazivStepenStudija;
 
+    public StepenStudija(int stepenStudijaId, String nazivStepenStudija) {
+        this.stepenStudijaId = stepenStudijaId;
+        this.nazivStepenStudija = nazivStepenStudija;
+    }
+
     public StepenStudija(String nazivStepenStudija) {
         this.nazivStepenStudija = nazivStepenStudija;
     }

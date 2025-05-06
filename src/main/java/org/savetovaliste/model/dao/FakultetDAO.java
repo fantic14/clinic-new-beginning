@@ -32,7 +32,7 @@ public class FakultetDAO {
         try(PreparedStatement statement = getConnection().prepareStatement(query);
             ResultSet result = statement.executeQuery()) {
             while (result.next()){
-                fakultetList.add(new Fakultet(result.getString("naziv"), result.getInt("univerzitet_id")));
+                fakultetList.add(new Fakultet(result.getInt("fakultet_id"),result.getString("naziv"), result.getInt("univerzitet_id")));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error fetching fakultet list", e);

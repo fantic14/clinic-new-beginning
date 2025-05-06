@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.savetovaliste.controller.otvaranjeProzora.OtvaranjeProzoraZaLogovanjePsihoterapeutaController;
-import org.savetovaliste.controller.otvaranjeProzora.PregledProfilaPsihoterapeutaController;
-import org.savetovaliste.controller.otvaranjeProzora.PrikazPsihoterapeutaController;
-import org.savetovaliste.controller.otvaranjeProzora.OtvaranjeProzoraZaRegistracijuPsihoterapeutaController;
+import org.savetovaliste.controller.otvaranjeProzora.*;
 
 import java.util.Objects;
 
@@ -55,6 +52,7 @@ public class MainWindow {
         sessionHistory.getStyleClass().addAll("btn", "btn-info");
         futureSessions.getStyleClass().addAll("btn", "btn-info");
         sessionNotes.getStyleClass().addAll("btn", "btn-warning");
+        sessionNotes.setOnAction(new PregledBeleskiTestovaController());
         publishSessionData.getStyleClass().addAll("btn", "btn-danger");
         paymentOverview.getStyleClass().addAll("btn", "btn-primary");
     }

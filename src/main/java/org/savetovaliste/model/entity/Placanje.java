@@ -21,6 +21,19 @@ public class Placanje {
     private String nazivValute;
     private LocalDate datumUplate;
 
+    public Placanje(int placanjeId, int klijentId, Integer psiholoskiTestId, Integer seansaId, int iznos, boolean stranaValuta, String svrhaPlacanja, boolean kesh, String nazivValute, LocalDate datumUplate) {
+        this.placanjeId = placanjeId;
+        this.klijentId = klijentId;
+        this.psiholoskiTestId = psiholoskiTestId;
+        this.seansaId = seansaId;
+        this.iznos = iznos;
+        this.stranaValuta = stranaValuta;
+        this.svrhaPlacanja = svrhaPlacanja;
+        this.kesh = kesh;
+        this.nazivValute = nazivValute;
+        this.datumUplate = datumUplate;
+    }
+
     public Placanje(int klijentId, Integer psiholoskiTestId, Integer seansaId, int iznos, boolean stranaValuta, String svrhaPlacanja, boolean kesh, String nazivValute, LocalDate datumUplate) {
         this.klijentId = klijentId;
         this.psiholoskiTestId = psiholoskiTestId;

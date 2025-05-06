@@ -14,6 +14,14 @@ public class PsiholoskiTest {
     private int cena;
     private String rezultat;
 
+    public PsiholoskiTest(int psiholoskiTestId, String oblast, String naziv, int cena, String rezultat) {
+        this.psiholoskiTestId = psiholoskiTestId;
+        this.oblast = oblast;
+        this.naziv = naziv;
+        this.cena = cena;
+        this.rezultat = rezultat;
+    }
+
     public PsiholoskiTest(String oblast, String naziv, int cena, String rezultat) {
         this.oblast = oblast;
         this.naziv = naziv;
