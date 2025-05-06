@@ -6,11 +6,11 @@ import org.savetovaliste.model.dao.PsihoterapeutDAO;
 import org.savetovaliste.model.entity.Psihoterapeut;
 import org.savetovaliste.view.prikazi.RegistracijaPsihoterapeutaWindow;
 
-public class RegistracijaController implements EventHandler<ActionEvent> {
+public class RegistracijaPsihoterapeutaController implements EventHandler<ActionEvent> {
 
     private RegistracijaPsihoterapeutaWindow window;
 
-    public RegistracijaController(RegistracijaPsihoterapeutaWindow window) {
+    public RegistracijaPsihoterapeutaController(RegistracijaPsihoterapeutaWindow window) {
         this.window = window;
     }
 
@@ -33,6 +33,7 @@ public class RegistracijaController implements EventHandler<ActionEvent> {
                     window.getStepenStudija().getValue().getStepenStudijaId(),
                     window.getDatumSertifikacije().getValue(),
                     window.getOblastPsihoterapije().getValue().getOblastPsihoterapijeId()));
+            window.getStage().close();
         }
     }
 }

@@ -4,8 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.savetovaliste.controller.otvaranjeProzora.OtvaranjeProzoraZaLogovanjePsihoterapeutaController;
 import org.savetovaliste.controller.otvaranjeProzora.PrikazPsihoterapeutaController;
-import org.savetovaliste.controller.otvaranjeProzora.RegistracijaPsihoterapeutaController;
+import org.savetovaliste.controller.otvaranjeProzora.OtvaranjeProzoraZaRegistracijuPsihoterapeutaController;
 
 import java.util.Objects;
 
@@ -37,8 +38,9 @@ public class MainWindow {
     @FXML
     public void initialize() {
         login.getStyleClass().addAll("btn", "btn-primary");
+        login.setOnAction(new OtvaranjeProzoraZaLogovanjePsihoterapeutaController());
         register.getStyleClass().addAll("btn");
-        register.setOnAction(new RegistracijaPsihoterapeutaController());
+        register.setOnAction(new OtvaranjeProzoraZaRegistracijuPsihoterapeutaController());
 
         Image profileImage = new Image(Objects.requireNonNull(getClass().getResource("/imgs/profile.png")).toString());
         ImageView profileIcon = new ImageView(profileImage);

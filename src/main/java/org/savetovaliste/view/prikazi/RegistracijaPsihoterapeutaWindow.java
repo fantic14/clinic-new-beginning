@@ -1,6 +1,5 @@
 package org.savetovaliste.view.prikazi;
 
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -10,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
-import org.savetovaliste.controller.RegistracijaController;
+import org.savetovaliste.controller.RegistracijaPsihoterapeutaController;
 import org.savetovaliste.model.dao.FakultetDAO;
 import org.savetovaliste.model.dao.OblastPsihoterapijeDAO;
 import org.savetovaliste.model.dao.StepenStudijaDAO;
@@ -34,15 +33,17 @@ public class RegistracijaPsihoterapeutaWindow {
     private DatePicker datumSertifikacije;
     private ComboBox<OblastPsihoterapije> oblastPsihoterapije;
     private Button register;
+    private Stage stage;
 
     public void start(Stage stage){
+        this.stage = stage;
         initialize();
         VBox root = new VBox(ime,prezime,jmbg,datumRodjenja,prebivaliste,brojTelefona,email,fakultet,stepenStudija,datumSertifikacije,oblastPsihoterapije,register);
         root.setSpacing(10);
         Scene scene = new Scene(root, 500, 500);
-        stage.setScene(scene);
-        stage.setTitle("Registruj se");
-        stage.show();
+        this.stage.setScene(scene);
+        this.stage.setTitle("Registruj se");
+        this.stage.show();
     }
 
     private void initialize() {
@@ -83,6 +84,6 @@ public class RegistracijaPsihoterapeutaWindow {
         this.oblastPsihoterapije.getItems().addAll(OblastPsihoterapijeDAO.selectAllFromOblastPsihoterapije());
 
         this.register = new Button("Registruj se");
-        this.register.setOnAction(new RegistracijaController(this));
+        this.register.setOnAction(new RegistracijaPsihoterapeutaController(this));
     }
 }
