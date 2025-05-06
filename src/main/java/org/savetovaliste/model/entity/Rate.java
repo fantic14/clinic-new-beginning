@@ -16,6 +16,21 @@ public class Rate {
     private LocalDate datumPrveRate;
     private LocalDate datumDrugeRate;
 
+    public Rate(int rataId, int prvaRataIznos, int drugaRataIznos, LocalDate datumPrveRate) {
+        this.rataId = rataId;
+        this.prvaRataIznos = prvaRataIznos;
+        this.drugaRataIznos = drugaRataIznos;
+        this.datumPrveRate = datumPrveRate;
+    }
+
+    public Rate(int rataId, int prvaRataIznos, int drugaRataIznos, LocalDate datumPrveRate, LocalDate datumDrugeRate) {
+        this.rataId = rataId;
+        this.prvaRataIznos = prvaRataIznos;
+        this.drugaRataIznos = drugaRataIznos;
+        this.datumPrveRate = datumPrveRate;
+        this.datumDrugeRate = datumDrugeRate;
+    }
+
     public Rate(int prvaRataIznos, int drugaRataIznos, LocalDate datumPrveRate) {
         this.prvaRataIznos = prvaRataIznos;
         this.drugaRataIznos = drugaRataIznos;

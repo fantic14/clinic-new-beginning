@@ -16,6 +16,14 @@ public class Seansa {
     private LocalDate poslednjaPromenaCene;
     private boolean priznaoKrivicnoDelo;
 
+    public Seansa(int seansaId, String beleske, int cena, LocalDate poslednjaPromenaCene, boolean priznaoKrivicnoDelo) {
+        this.seansaId = seansaId;
+        this.beleske = beleske;
+        this.cena = cena;
+        this.poslednjaPromenaCene = poslednjaPromenaCene;
+        this.priznaoKrivicnoDelo = priznaoKrivicnoDelo;
+    }
+
     public Seansa(String beleske, int cena, LocalDate poslednjaPromenaCene, boolean priznaoKrivicnoDelo) {
         this.beleske = beleske;
         this.cena = cena;

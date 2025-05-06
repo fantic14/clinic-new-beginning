@@ -22,6 +22,19 @@ public class Klijent {
     private String nacinKontakta;
     private boolean prvaSeansa;
 
+    public Klijent(int klijentId, String ime, String prezime, LocalDate datumRodjenja, char pol, String email, String brojTelefona, String opisProblema, String nacinKontakta, boolean prvaSeansa) {
+        this.klijentId = klijentId;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.datumRodjenja = datumRodjenja;
+        this.pol = pol;
+        this.email = email;
+        this.brojTelefona = brojTelefona;
+        this.opisProblema = opisProblema;
+        this.nacinKontakta = nacinKontakta;
+        this.prvaSeansa = prvaSeansa;
+    }
+
     public Klijent(String ime, String prezime, LocalDate datumRodjenja, char pol, String email, String brojTelefona, String opisProblema, String nacinKontakta, boolean prvaSeansa) {
         this.ime = ime;
         this.prezime = prezime;

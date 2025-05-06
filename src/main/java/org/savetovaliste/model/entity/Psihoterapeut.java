@@ -22,26 +22,10 @@ public class Psihoterapeut extends Osoba{
         this.oblastPsihoterapijeId = oblastPsihoterapijeId;
     }
 
-    public String sastaviPsihoterapeutInfo(){
-        String fakultet = FakultetDAO.getFakultetName(this.getFakultetId());
-        String stepenStudija = StepenStudijaDAO.getStepenStudijaName(this.getStepenStudijaId());
-        String oblastPsihoterapije;
-        return this.getIme() +
-                " " +
-                this.getPrezime() +
-                " " +
-                this.getJmbg() +
-                " " +
-                this.getDatumRodjenja() +
-                " " +
-                this.getPrebivaliste() +
-                " " +
-                this.getBrojTelefona() +
-                " " +
-                this.getEmail() +
-                " " +
-                fakultet +
-                " " +
-                stepenStudija;
+    public Psihoterapeut(int osobaId, String ime, String prezime, String jmbg, LocalDate datumRodjenja, String prebivaliste, String brojTelefona, String email, int fakultetId, int stepenStudijaId, LocalDate datumSertifikacije, int oblastPsihoterapijeId) {
+        super(osobaId, ime, prezime, jmbg, datumRodjenja, prebivaliste, brojTelefona, email, fakultetId, stepenStudijaId);
+        this.psihoterapeutId = super.getOsobaId();
+        this.datumSertifikacije = datumSertifikacije;
+        this.oblastPsihoterapijeId = oblastPsihoterapijeId;
     }
 }

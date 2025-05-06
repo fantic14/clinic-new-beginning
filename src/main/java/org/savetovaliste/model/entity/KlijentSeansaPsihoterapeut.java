@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class KlijentSeansaPsihoterap {
+public class KlijentSeansaPsihoterapeut {
 
     private int klijentId;
     private int seansaId;
@@ -18,7 +18,7 @@ public class KlijentSeansaPsihoterap {
     private int trajanje;
     private Integer psiholoskiTestId;
 
-    public KlijentSeansaPsihoterap(int klijentId, int seansaId, int osobaId, LocalDate datum, LocalTime vreme, int trajanje, Integer psiholoskiTestId) {
+    public KlijentSeansaPsihoterapeut(int klijentId, int seansaId, int osobaId, LocalDate datum, LocalTime vreme, int trajanje, Integer psiholoskiTestId) {
         this.klijentId = klijentId;
         this.seansaId = seansaId;
         this.osobaId = osobaId;
@@ -28,7 +28,7 @@ public class KlijentSeansaPsihoterap {
         this.psiholoskiTestId = psiholoskiTestId;
     }
 
-    public KlijentSeansaPsihoterap(int klijentId, int seansaId, int osobaId, LocalDate datum, LocalTime vreme, int trajanje) {
+    public KlijentSeansaPsihoterapeut(int klijentId, int seansaId, int osobaId, LocalDate datum, LocalTime vreme, int trajanje) {
         this.klijentId = klijentId;
         this.seansaId = seansaId;
         this.osobaId = osobaId;

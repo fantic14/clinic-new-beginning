@@ -11,6 +11,11 @@ public class OblastPsihoterapije {
     private int oblastPsihoterapijeId;
     private String naziv;
 
+    public OblastPsihoterapije(int oblastPsihoterapijeId, String naziv) {
+        this.oblastPsihoterapijeId = oblastPsihoterapijeId;
+        this.naziv = naziv;
+    }
+
     public OblastPsihoterapije(String naziv) {
         this.naziv = naziv;
     }

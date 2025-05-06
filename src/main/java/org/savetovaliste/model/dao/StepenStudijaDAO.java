@@ -33,7 +33,7 @@ public class StepenStudijaDAO {
         try(PreparedStatement statement = getConnection().prepareStatement(query);
             ResultSet result = statement.executeQuery()) {
             while (result.next()){
-                stepenStudijalist.add(new StepenStudija(result.getString("naziv")));
+                stepenStudijalist.add(new StepenStudija(result.getInt("stepen_studija_id"), result.getString("naziv")));
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error fetching stepen studija list", e);

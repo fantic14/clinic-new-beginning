@@ -21,6 +21,19 @@ public abstract class Osoba {
     private int fakultetId;
     private int stepenStudijaId;
 
+    public Osoba(int osobaId, String ime, String prezime, String jmbg, LocalDate datumRodjenja, String prebivaliste, String brojTelefona, String email, int fakultetId, int stepenStudijaId) {
+        this.osobaId = osobaId;
+        this.ime = ime;
+        this.prezime = prezime;
+        this.jmbg = jmbg;
+        this.datumRodjenja = datumRodjenja;
+        this.prebivaliste = prebivaliste;
+        this.brojTelefona = brojTelefona;
+        this.email = email;
+        this.fakultetId = fakultetId;
+        this.stepenStudijaId = stepenStudijaId;
+    }
+
     public Osoba(String ime, String prezime, String jmbg, LocalDate datumRodjenja, String prebivaliste, String brojTelefona, String email, int fakultetId, int stepenStudijaId) {
         this.ime = ime;
         this.prezime = prezime;

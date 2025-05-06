@@ -14,6 +14,14 @@ public class CentarZaObuku {
     private String brojTelefona;
     private String adresa;
 
+    public CentarZaObuku(int centarZaObukuId, String naziv, String email, String brojTelefona, String adresa) {
+        this.centarZaObukuId = centarZaObukuId;
+        this.naziv = naziv;
+        this.email = email;
+        this.brojTelefona = brojTelefona;
+        this.adresa = adresa;
+    }
+
     public CentarZaObuku(String naziv, String email, String brojTelefona, String adresa) {
         this.naziv = naziv;
         this.email = email;

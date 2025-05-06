@@ -13,7 +13,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.savetovaliste.model.dao.FakultetDAO;
 import org.savetovaliste.model.dao.OblastPsihoterapijeDAO;
-import org.savetovaliste.model.dao.PsihoterapeutDAO;
 import org.savetovaliste.model.dao.StepenStudijaDAO;
 import org.savetovaliste.model.entity.Psihoterapeut;
 

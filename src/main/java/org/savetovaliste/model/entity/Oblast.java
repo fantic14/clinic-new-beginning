@@ -11,6 +11,11 @@ public class Oblast {
     private int oblastId;
     private String naziv;
 
+    public Oblast(int oblastId, String naziv) {
+        this.oblastId = oblastId;
+        this.naziv = naziv;
+    }
+
     public Oblast(String naziv) {
         this.naziv = naziv;
     }
