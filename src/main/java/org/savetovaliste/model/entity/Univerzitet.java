@@ -13,13 +13,15 @@ public class Univerzitet {
     private int usmerenjeId;
 
     public Univerzitet(String naziv, int usmerenjeId) {
-        this.univerzitetId = idCounter++;
         this.naziv = naziv;
         this.usmerenjeId = usmerenjeId;
     }
 
     public Univerzitet(String naziv) {
-        this.univerzitetId = idCounter++;
         this.naziv = naziv;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

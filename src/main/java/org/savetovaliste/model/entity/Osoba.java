@@ -22,7 +22,6 @@ public abstract class Osoba {
     private int stepenStudijaId;
 
     public Osoba(String ime, String prezime, String jmbg, LocalDate datumRodjenja, String prebivaliste, String brojTelefona, String email, int fakultetId, int stepenStudijaId) {
-        this.osobaId = idCounter++;
         this.ime = ime;
         this.prezime = prezime;
         this.jmbg = jmbg;
@@ -32,5 +31,9 @@ public abstract class Osoba {
         this.email = email;
         this.fakultetId = fakultetId;
         this.stepenStudijaId = stepenStudijaId;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

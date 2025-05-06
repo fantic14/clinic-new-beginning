@@ -15,10 +15,13 @@ public class CentarZaObuku {
     private String adresa;
 
     public CentarZaObuku(String naziv, String email, String brojTelefona, String adresa) {
-        this.centarZaObukuId = idCounter++;
         this.naziv = naziv;
         this.email = email;
         this.brojTelefona = brojTelefona;
         this.adresa = adresa;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

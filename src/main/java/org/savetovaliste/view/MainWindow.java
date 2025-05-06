@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.savetovaliste.controller.otvaranjeProzora.OtvaranjeProzoraZaLogovanjePsihoterapeutaController;
+import org.savetovaliste.controller.otvaranjeProzora.PregledProfilaPsihoterapeutaController;
 import org.savetovaliste.controller.otvaranjeProzora.PrikazPsihoterapeutaController;
 import org.savetovaliste.controller.otvaranjeProzora.OtvaranjeProzoraZaRegistracijuPsihoterapeutaController;
 
@@ -20,8 +21,6 @@ public class MainWindow {
     public Button register;
     @FXML
     public Button profile;
-    @FXML
-    public Button profileOverview;
     @FXML
     public Button clientAppointments;
     @FXML
@@ -49,9 +48,9 @@ public class MainWindow {
         profileIcon.setPreserveRatio(true);
         profile.setGraphic(profileIcon);
         profile.getStyleClass().addAll("btn", "btn-primary");
+        profile.setOnAction(new PregledProfilaPsihoterapeutaController());
         overviewTherapists.getStyleClass().addAll("btn", "btn-info");
         overviewTherapists.setOnAction(new PrikazPsihoterapeutaController());
-        profileOverview.getStyleClass().addAll("btn", "btn-info");
         clientAppointments.getStyleClass().addAll("btn", "btn-secondary");
         sessionHistory.getStyleClass().addAll("btn", "btn-info");
         futureSessions.getStyleClass().addAll("btn", "btn-info");
@@ -71,9 +70,6 @@ public class MainWindow {
 
     @FXML
     protected void reviewTherapists() {}
-
-    @FXML
-    protected void profileOverviewBtn() {}
 
     @FXML
     protected void clientAppointmentsBtn() {}

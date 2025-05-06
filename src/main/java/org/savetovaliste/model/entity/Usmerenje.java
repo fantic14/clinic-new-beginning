@@ -13,13 +13,15 @@ public class Usmerenje {
     private String nazivSrodneOblasti;
 
     public Usmerenje(String naziv, String nazivSrodneOblasti) {
-        this.usmerenjeId = idCounter++;
         this.naziv = naziv;
         this.nazivSrodneOblasti = nazivSrodneOblasti;
     }
 
     public Usmerenje(String naziv) {
-        this.usmerenjeId = idCounter++;
         this.naziv = naziv;
+    }
+
+    public static void incrementIdCounter() {
+        idCounter++;
     }
 }

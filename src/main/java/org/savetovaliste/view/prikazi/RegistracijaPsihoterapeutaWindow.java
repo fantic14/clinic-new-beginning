@@ -1,10 +1,7 @@
 package org.savetovaliste.view.prikazi;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lombok.Getter;
@@ -33,17 +30,21 @@ public class RegistracijaPsihoterapeutaWindow {
     private DatePicker datumSertifikacije;
     private ComboBox<OblastPsihoterapije> oblastPsihoterapije;
     private Button register;
-    private Stage stage;
+    private Label message;
+    private static Stage stage;
 
-    public void start(Stage stage){
-        this.stage = stage;
-        initialize();
-        VBox root = new VBox(ime,prezime,jmbg,datumRodjenja,prebivaliste,brojTelefona,email,fakultet,stepenStudija,datumSertifikacije,oblastPsihoterapije,register);
-        root.setSpacing(10);
-        Scene scene = new Scene(root, 500, 500);
-        this.stage.setScene(scene);
-        this.stage.setTitle("Registruj se");
-        this.stage.show();
+    public void start(Stage s){
+        if (this.stage == null)
+            this.stage = s;
+        if (!stage.isShowing()) {
+            initialize();
+            VBox root = new VBox(ime, prezime, jmbg, datumRodjenja, prebivaliste, brojTelefona, email, fakultet, stepenStudija, datumSertifikacije, oblastPsihoterapije, register);
+            root.setSpacing(10);
+            Scene scene = new Scene(root, 500, 500);
+            this.stage.setScene(scene);
+            this.stage.setTitle("Registruj se");
+            this.stage.show();
+        }
     }
 
     private void initialize() {
@@ -85,5 +86,11 @@ public class RegistracijaPsihoterapeutaWindow {
 
         this.register = new Button("Registruj se");
         this.register.setOnAction(new RegistracijaPsihoterapeutaController(this));
+
+        this.message = new Label();
+    }
+
+    public static Stage getStage() {
+        return stage;
     }
 }
