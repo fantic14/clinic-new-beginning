@@ -31,6 +31,7 @@ public class PsihoterapeutDAO {
 
     public static Psihoterapeut selectFromPsihoterapeutById(int id) {
         String query = "SELECT DISTINCT\n" +
+                "o.osoba_id,\n" +
                 "o.ime,\n" +
                 "o.prezime,\n" +
                 "o.jmbg,\n" +
@@ -74,6 +75,7 @@ public class PsihoterapeutDAO {
 
     public static List<Psihoterapeut> selectAllFromPsihoterapeut() {
         String query = "SELECT DISTINCT\n" +
+                "o.osoba_id,\n" +
                 "o.ime,\n" +
                 "o.prezime,\n" +
                 "o.jmbg,\n" +

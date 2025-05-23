@@ -50,6 +50,7 @@ public class MainWindow {
         overviewTherapists.setOnAction(new PrikazPsihoterapeutaController());
         clientAppointments.getStyleClass().addAll("btn", "btn-secondary");
         sessionHistory.getStyleClass().addAll("btn", "btn-info");
+        sessionHistory.setOnAction(new OtvaranjeProzoraZaOdrzaneSeanse());
         futureSessions.getStyleClass().addAll("btn", "btn-info");
         sessionNotes.getStyleClass().addAll("btn", "btn-warning");
         sessionNotes.setOnAction(new PregledBeleskiTestovaController());

@@ -8,7 +8,7 @@ public class JDBCUtils {
 
     private static final String URL = "jdbc:mysql://localhost:3306";
     private static final String USER = "root";
-    private static final String PASSWORD = "root";
+    private static final String PASSWORD = "12345";
     public static Connection connection = null;
 
     public static Connection getConnection() throws SQLException {
