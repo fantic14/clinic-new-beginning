@@ -59,6 +59,7 @@ public class MainWindow {
         publishSessionData.getStyleClass().addAll("btn", "btn-danger");
         publishSessionData.setOnAction(new OtvaranjeProzoraZaCuvanjePodatakaOObjavljivanjuController());
         paymentOverview.getStyleClass().addAll("btn", "btn-primary");
+        paymentOverview.setOnAction(new OtvaranjeProzoraZaUplate());
     }
 
     @FXML
